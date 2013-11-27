@@ -14,16 +14,11 @@
 
 @implementation CalculatorViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
+@synthesize display = _display;
 
-- (void)didReceiveMemoryWarning
+- (IBAction)digitPressed:(UIButton *)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSString *digit = [sender currentTitle];
+    self.display.text = [self.display.text stringByAppendingString:digit];
 }
-
 @end
