@@ -24,6 +24,7 @@
 
 - (CalculatorBrain *)brain
 {
+    // 延迟实例化
     if (!_brain) _brain = [[CalculatorBrain alloc] init];
     return _brain;
 }
@@ -38,16 +39,20 @@
         self.userIsInTheMiddleOfEnteringANumber = YES;
     }
 }
+
 - (IBAction)enterPressed
 {
     [self.brain pushOperand:[self.display.text doubleValue]];
     self.userIsInTheMiddleOfEnteringANumber = NO;
 }
+
 - (IBAction)opretionPressed:(UIButton *)sender
 {
+    // 帮助用户减少Enter的敲击次数
     if (self.userIsInTheMiddleOfEnteringANumber) [self enterPressed];
+    
     double result = [self.brain performOperation:sender.currentTitle];
-    NSString *resultString = [NSString stringWithFormat:@"%g", result];
-    self.display.text = resultString;
+    // 格式化输出结果
+    self.display.text = [NSString stringWithFormat:@"%g", result];
 }
 @end
