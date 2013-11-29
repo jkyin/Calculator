@@ -10,15 +10,27 @@
 
 @interface CalculatorViewController ()
 
+@property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
+
 @end
 
 @implementation CalculatorViewController
 
 @synthesize display = _display;
+@synthesize userIsInTheMiddleOfEnteringANumber = _userIsInTheMiddleOfEnteringANumber;
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
     NSString *digit = [sender currentTitle];
-    self.display.text = [self.display.text stringByAppendingString:digit];
+    if (self.userIsInTheMiddleOfEnteringANumber) {
+        self.display.text = [self.display.text stringByAppendingString:digit];
+    }else {
+        self.display.text = digit;
+        self.userIsInTheMiddleOfEnteringANumber = YES;
+    }
+}
+- (IBAction)enterPressed {
+}
+- (IBAction)opretionPressed:(id)sender {
 }
 @end
