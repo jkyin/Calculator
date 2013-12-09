@@ -69,4 +69,9 @@
     return result;
 }
 
+- (void)clearStack
+{
+    _operandStack = Nil;
+}
+
 @end

@@ -55,4 +55,11 @@
     // 格式化输出结果
     self.display.text = [NSString stringWithFormat:@"%g", result];
 }
+
+- (IBAction)clearPressed
+{
+    self.display.text = @"0";
+    _userIsInTheMiddleOfEnteringANumber = NO;
+    [self.brain clearStack];
+}
 @end
