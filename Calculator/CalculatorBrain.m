@@ -71,7 +71,7 @@
 
 - (void)clearStack
 {
-    _operandStack = Nil;
+    [self.operandStack removeAllObjects];
 }
 
 @end

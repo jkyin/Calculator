@@ -59,7 +59,7 @@
 - (IBAction)clearPressed
 {
     self.display.text = @"0";
-    _userIsInTheMiddleOfEnteringANumber = NO;
+    self.userIsInTheMiddleOfEnteringANumber = NO;
     [self.brain clearStack];
 }
 @end
